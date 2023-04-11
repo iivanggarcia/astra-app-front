@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    
+  <mat-toolbar >
+    
+    <a class="sidebar-brand " href="#">
+      <div >
+      </div>
+      
+    </a>
+    <img src="assets/imagen astra.png" alt="Imagen del logo de astrazeneca" width="60">
+    <div class="sidebar-brand-text mx-3">Softley</div>
+
+  </mat-toolbar>
+  <mat-toolbar>Categrías de servicios</mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item href="#" *ngFor="let categoria of categorias">{{categoria.nombre}}</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"> <!-- async)!matches-->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Disponibilidad de servicio</span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
