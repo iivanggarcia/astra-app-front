@@ -1,1 +1,19 @@
-<p>servicio works! {{init}}</p>
+
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        {{initS.nombre_servicio}}
+        </mat-panel-title>
+        <mat-panel-description>
+            <div fxLayout="row" fxLayoutAlign="space-around" class="lista-servicios" fxFill>
+                <p>**descripcion de la incidencia**</p>
+                <div [ngClass]="
+                {'circulo-verde' : initS.system_status === 'green',
+                'circulo-ambar' : initS.system_status === 'yellow',
+                'circulo-rojo' : initS.system_status === 'red'}" ></div>
+            </div>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{initS.descripcion}}</p>
+    </mat-expansion-panel>

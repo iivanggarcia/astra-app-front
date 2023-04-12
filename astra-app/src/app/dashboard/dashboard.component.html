@@ -1,8 +1,26 @@
 
-
 <mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;">Categoría X</h1>
-        <app-servicio *ngFor="let item of items;" [init]="'1'"></app-servicio>
+    <mat-card-content *ngIf="idCategoria != 0">
+        <h1 class="titulo-cat">{{nombreCategoria}}</h1>
+        <hr size="2px" color="black" style="margin-top: 5%;"/>
+        <div class="descripcion-cat">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. (Descripcion de la categoria)</div>
+        <hr size="2px" color="black" style="width: 70%; margin-bottom: 7%; margin-top: 5%;" />
+        <mat-accordion >
+            <app-servicio *ngFor="let servicio of servicios;" [initS]="servicio"></app-servicio>
+        </mat-accordion>
+    </mat-card-content>
+    <mat-card-content *ngIf="idCategoria == 0">
+        <div fxLayout="column" fxLayoutAlign="center center" fxFill>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+              <img src="assets/imagen astra.png" alt="Logo Astrazeneca" width="120">
+              <h1 class="sidebar-brand-text mx-3" fxFlexAlign="center"> SOFTLEY </h1>
+            </div>
+        </div>
+        <hr size="2px" color="black" style="margin-top: 5%;"/>
+        <div>
+            <mat-card class="notificacion_status background_rojo" >
+                <mat-card-content><h3>Todos los servicios funcionando correctamente</h3></mat-card-content>
+            </mat-card>
+        </div>
     </mat-card-content>
 </mat-card>

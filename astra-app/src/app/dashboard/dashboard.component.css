@@ -1,4 +1,21 @@
 mat-card{
-    margin: 5%;
+    margin: 5% 20% 5% 20%;
     min-height: 70%;
+}
+
+.descripcion-cat{
+    text-align: center;
+    margin: 3%;
+}
+
+.titulo-cat{
+    text-align: center;
+    margin: 2%;
+}
+
+.notificacion_status{
+    margin: 20%;
+    text-align: center;
+    color: white;
+    font-weight: 600;
 }

@@ -1,39 +1,41 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      
+  <mat-sidenav #drawer class="sidenav" fixedInViewport color="primary"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     
-  <mat-toolbar >
-    
-    <a class="sidebar-brand " href="#">
-      <div >
+    <mat-toolbar >
+      <div fxLayout="column" fxLayoutAlign="center center" fxFill>
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <img src="assets/imagen astra.png" alt="Imagen del logo de astrazeneca" width="60">
+          <div class="sidebar-brand-text mx-3"> SOFTLEY </div>
+        </div>
       </div>
-      
-    </a>
-    <img src="assets/imagen astra.png" alt="Imagen del logo de astrazeneca" width="60">
-    <div class="sidebar-brand-text mx-3">Softley</div>
+    </mat-toolbar>
+    <hr size="2px" color="gray" style="width: 70%; margin-bottom: 1%; margin-top: 1%;" />
+    <mat-toolbar fxLayout="row" fxLayoutAlign="center center">Categorías de servicios</mat-toolbar>
 
-  </mat-toolbar>
-  <mat-toolbar>Categrías de servicios</mat-toolbar>
-
-    <mat-nav-list>
-      <a mat-list-item href="#" *ngFor="let categoria of categorias">{{categoria.nombre}}</a>
+    <mat-nav-list >
+      <a mat-list-item href="#" *ngFor="let categoria of categorias" (click)="cambiaCategoria(categoria.id_categoria, categoria.nombre_categoria )">
+        <div fxLayout="row" fxLayoutAlign="space-between" class="lista-servicios">
+          <p style="color: white;">{{categoria.nombre_categoria}}</p>
+          <div class="circulo-rojo"></div>
+      </div>
+      </a>
     </mat-nav-list>
 
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar>
+  <mat-sidenav-content class="todo">
+    <mat-toolbar *ngIf="(isHandset$ | async)!matches">
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"> <!-- async)!matches-->
+        *ngIf="(isHandset$ | async)!matches"> <!-- async)!matches-->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Disponibilidad de servicio</span>
+      <span>Ver catálogos</span>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->

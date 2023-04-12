@@ -14,13 +14,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ServicioComponent } from './servicio/servicio.component';
+import { FirstComponent } from './first/first.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     DashboardMenuComponent,
-    ServicioComponent
+    ServicioComponent,
+    FirstComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { ServicioComponent } from './servicio/servicio.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

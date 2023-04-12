@@ -3,7 +3,14 @@
 }
 
 .sidenav {
-  width: 300px;
+  width: 500px;
+  background-color: #666f88;
+  color: white;
+}
+
+mat-toolbar{
+  background-color: #e0e4f0;
+  color: white;
 }
 
 .sidenav .mat-toolbar {

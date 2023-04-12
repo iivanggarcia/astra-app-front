@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ServicioComponent {
 
-  @Input() init: string = "";
+  @Input() initS: any = {};
+
 }

@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { CategoriasService } from '../categorias.service';
 
 @Component({
   selector: 'app-dashboard-menu',
   templateUrl: './dashboard-menu.component.html',
   styleUrls: ['./dashboard-menu.component.css']
 })
-export class DashboardMenuComponent {
+export class DashboardMenuComponent implements OnInit {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -16,14 +17,22 @@ export class DashboardMenuComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+      private breakpointObserver: BreakpointObserver,
+      private categoriasService: CategoriasService
+    ) {}
 
-  categorias: any = [
-    {nombre:"categoría 1" , estado:"funciona"},
-    {nombre:"categoría 2" , estado:"funciona"},
-    {nombre:"categoría 3" , estado:"funciona"},
-    {nombre:"categoría 4" , estado:"funciona"},
-    {nombre:"categoría 5" , estado:"funciona"},
-    {nombre:"categoría 6" , estado:"funciona"}
-  ]
+  ngOnInit(): void {
+    this.categoriasService.obtenerCategorias().subscribe( (resCat: any) => {
+      //this.categorias = resCat;
+      //console.log(this.categorias);
+    });
+  }
+
+  categorias: any = [{"id_categoria":"1","nombre_categoria":"Box Web Application"},{"id_categoria":"2","nombre_categoria":"Box Platform - API"},{"id_categoria":"3","nombre_categoria":"Desktop Applications"},{"id_categoria":"4","nombre_categoria":"Mobile Applications"},{"id_categoria":"5","nombre_categoria":"Box Notes"},{"id_categoria":"6","nombre_categoria":"Box Relay"},{"id_categoria":"7","nombre_categoria":"Partners - Integrations"},{"id_categoria":"8","nombre_categoria":"Box Community and Support Website"},{"id_categoria":"9","nombre_categoria":"Developer Console - Docs"},{"id_categoria":"10","nombre_categoria":"FTP"}];
+
+
+  cambiaCategoria(id: number, nombre: string){
+    this.categoriasService.actualizarCategoria(id, nombre);
+  }
 }

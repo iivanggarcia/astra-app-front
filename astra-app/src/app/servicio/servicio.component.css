@@ -1,0 +1,26 @@
+.lista-servicios{
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-right: 5%;
+}
+
+.circulo-verde {
+    width: 15px;
+    height: 15px;
+    background: #7DCEA0;
+    border-radius: 100%;
+}
+
+.circulo-rojo {
+    width: 15px;
+    height: 15px;
+    background: #D35E35;
+    border-radius: 100%;
+}
+
+.circulo-ambar {
+    width: 15px;
+    height: 15px;
+    background: #F7DC6F;
+    border-radius: 100%;
+}
