@@ -25,7 +25,7 @@ export class DashboardMenuComponent implements OnInit {
   ngOnInit(): void {
     this.categoriasService.obtenerCategorias().subscribe( (resCat: any) => {
       //this.categorias = resCat;
-      //console.log(this.categorias);
+      console.log(resCat);
     });
   }
 
