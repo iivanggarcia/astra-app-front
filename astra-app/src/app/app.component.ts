@@ -19,10 +19,6 @@ export class AppComponent implements OnInit{
     this.categoriaService.logeado.subscribe( (resLogeado) => {
       this.logeado = resLogeado;
     });
-
-    if(this.categoriaService.logeado){
-      this.router.navigate(['/', 'inicio']);
-    }
   }
   title = 'astra-app';
 }
