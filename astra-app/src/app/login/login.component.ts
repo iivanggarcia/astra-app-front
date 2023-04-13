@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit{
   }
 
   iniciarSesion(){
-    this.sesionIniciada = this.categoriaService.validarLogin();
+    this.categoriaService.validarLogin();
   }
 
   clickOjo(){
   }
   
   clickLogin(){
-    this.router.navigate(['/', 'users']);
+    this.iniciarSesion();
   }
 }

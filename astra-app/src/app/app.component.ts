@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriasService } from './categorias.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,19 @@ import { CategoriasService } from './categorias.service';
 export class AppComponent implements OnInit{
 
   constructor(
-    private categoriaService: CategoriasService
+    private categoriaService: CategoriasService,
+    private router: Router
   ) { }
   
   logeado = false;
   ngOnInit(): void {
-    this.logeado = this.categoriaService.logeado;
+    this.categoriaService.logeado.subscribe( (resLogeado) => {
+      this.logeado = resLogeado;
+    });
+
+    if(this.categoriaService.logeado){
+      this.router.navigate(['/', 'inicio']);
+    }
   }
   title = 'astra-app';
 }

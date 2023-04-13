@@ -55,9 +55,8 @@
             <h1 class="font-weight-bold mb-4">Inicio de sesión</h1>
             <form class="mb-5">
               <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                <input type="email" class="form-control bg-dark-x border-0" id="email" placeholder="Ingresa tu email"
-                  aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label font-weight-bold">Teléfono</label>
+                <input type="number" class="form-control bg-dark-x border-0" id="number" placeholder="Ingresa tu número">
               </div>
               <div class="mb-4">
                 <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
@@ -65,10 +64,12 @@
                   id="password">
                 <img src="./../../assets/show.png" class="show" id="showPassword">
               </div>
-              <button type="submit" class="btn btn-primary w-100" (click)="clickLogin()" routerLink="/users/sammy">Iniciar sesión</button>
+              <button type="submit" class="btn btn-primary w-100" (click)="clickLogin()" >Iniciar sesión</button>
             </form>
           </div>
         </div>
       </div>
     </section>
+
+    <a href="http://localhost:4200/inicio">ir a la siguiente</a>
 </div>

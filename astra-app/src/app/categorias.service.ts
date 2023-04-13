@@ -118,9 +118,9 @@ export class CategoriasService {
     return obj;
   }
 
-  logeado = true;
+  logeado = new BehaviorSubject(false);
+
   validarLogin(){
-    this.logeado==true;
-    return this.logeado;
+    this.logeado.next(true);
   }
 }
