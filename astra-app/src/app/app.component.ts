@@ -16,6 +16,10 @@ export class AppComponent implements OnInit{
   
   logeado = false;
   ngOnInit(): void {
+    if(localStorage.getItem('inicioSesion') != null){
+      this.logeado = true;
+      this.categoriaService.validarLogin();
+    }
     this.categoriaService.logeado.subscribe( (resLogeado) => {
       this.logeado = resLogeado;
     });

@@ -1,11 +1,11 @@
 <h1 style="text-align: center; margin: 2%;">Incidencias actuales</h1>
 <hr size="2px" color="black" style="width: 70%; margin-bottom: 4%; margin-top: 2%;"/>
 <div *ngFor="let servicio of fakeDataIncidencias">
+    <div fxFill>
+        <h3 style="text-align: center;">{{servicio.nombre_servicio}}</h3>
+    </div>
     <div fxLayout="row" fxLayoutAlign="space-around" class="lista-servicios" fxFill>
-        <div fxFlex="20">
-            <h3>{{servicio.nombre_servicio}}</h3>
-        </div>
-        <div fxFlex="40">
+        <div fxFlex="60">
             <p>{{servicio.descripcion}}</p>
         </div>
         <div fxFlex="10">

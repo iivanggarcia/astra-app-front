@@ -126,5 +126,6 @@ export class CategoriasService {
 
   validarLogin(){
     this.logeado.next(true);
+    localStorage.setItem('inicioSesion', 'true')
   }
 }
