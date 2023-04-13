@@ -1,0 +1,80 @@
+:root {
+    --dark: #ffffff;
+    --dark-x: #ffffff;
+    --light: #000000;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 300;
+    color: var(--light);
+}
+
+.text-light {
+    color: var(--light) !important;
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+.bg-dark-x {
+    background-color: var(--dark-x);
+}
+
+.btn {
+    min-height: 3.125rem;
+    font-weight: 600;
+}
+
+.form-control {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.form-control:focus {
+    background-color: var(--dark-x);
+    outline: none;
+}
+
+.img-1,
+.img-2,
+.img-3,
+.img-4,
+.img-5 {
+    background-size: cover;
+    background-position: center;
+}
+
+.img-1 {
+    background-image: url('../../assets/img-1.jpg');
+}
+
+.img-2 {
+    background-image: url('../../assets/img-2.jpg');
+}
+
+.img-3 {
+    background-image: url('../../assets/img-3.jpg');
+}
+
+.img-4 {
+    background-image: url('../../assets/img-4.jpg');
+}
+
+.img-5 {
+    background-image: url('../../assets/img-5.jpg');
+}
+
+.mb-4 {
+    position: relative;
+}
+
+.show {
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    cursor: pointer;
+}   

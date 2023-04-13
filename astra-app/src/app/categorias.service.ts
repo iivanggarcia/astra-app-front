@@ -117,4 +117,10 @@ export class CategoriasService {
 
     return obj;
   }
+
+  logeado = true;
+  validarLogin(){
+    this.logeado==true;
+    return this.logeado;
+  }
 }
