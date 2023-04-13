@@ -28,9 +28,44 @@ export class CategoriasService {
   }
 
   obtenerCategorias() {
-    return this.httpClient.get('https://softley.gosoftware.com.mx/carpJson/var_Categoria.php');
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_Categoria.php').pipe(
+      map((val) => {
+        console.log("resultado categorías", val);
+      })
+    )
   }
 
+  obtenerIncidencia() {
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_Incidencias.php').pipe(
+      map((val) => {
+        console.log("resultado incidencias", val);
+      })
+    )
+  }
+
+  obtenerServicio() {
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_Servicios.php?id_categoria=1').pipe(
+      map((val) => {
+        console.log("resultado servicios", val);
+      })
+    )
+  }
+
+  obtenerStatusGeneral() {
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_StatusGeneral.php').pipe(
+      map((val) => {
+        console.log("resultado status general", val);
+      })
+    )
+  }
+
+  obtenerUsuarios() {
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_Usuarios.php?num_telefono=5534544066&password=456').pipe(
+      map((val) => {
+        console.log("resultado usuarios", val);
+      })
+    )
+  }
   servicios1 = [{ "id_servicio": "1", "id_categoria": "1", "nombre_servicio": "Login/SOO", "descripcion": "Inicio de sesión", "system_status": "green" }, { "id_servicio": "2", "id_categoria": "1", "nombre_servicio": "Uploads/Dowloads", "descripcion": "Actualizaciones y descargas de novedades", "system_status": "green" }];
   servicios2 = [{ "id_servicio": "3", "id_categoria": "2", "nombre_servicio": "Content API", "descripcion": "API de contenidos", "system_status": "yellow" }];
   servicios3 = [{ "id_servicio": "4", "id_categoria": "3", "nombre_servicio": "Login/SOO", "descripcion": "Inicio de sesión", "system_status": "green" }, { "id_servicio": "5", "id_categoria": "1", "nombre_servicio": "Uploads/Dowloads", "descripcion": "Actualizaciones y descargas de novedades", "system_status": "green" }];
@@ -71,11 +106,11 @@ export class CategoriasService {
     { "id_servicio": "6", "id_categoria": "4", "nombre_servicio": "Login/SSO", "descripcion": "Error al iniciar sesión", "system_status": "red" }
   ]
 
-  obtenerIncidencias(){
+  obtenerIncidencias() {
     return this.fakeDataIncidencias;
   }
 
-  obtenerHistorialIncidencias(){
+  obtenerHistorialIncidencias() {
     let obj = [
       {
         "id_incidencia": "1",
@@ -120,7 +155,7 @@ export class CategoriasService {
 
   logeado = new BehaviorSubject(false);
 
-  validarLogin(){
+  validarLogin() {
     this.logeado.next(true);
   }
 }
