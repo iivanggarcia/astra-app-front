@@ -1,0 +1,22 @@
+<h1 style="text-align: center; margin: 2%;">Incidencias actuales</h1>
+<hr size="2px" color="black" style="width: 70%; margin-bottom: 4%; margin-top: 2%;"/>
+<div *ngFor="let servicio of fakeDataIncidencias">
+    <div fxLayout="row" fxLayoutAlign="space-around" class="lista-servicios" fxFill>
+        <div fxFlex="20">
+            <h3>{{servicio.nombre_servicio}}</h3>
+        </div>
+        <div fxFlex="40">
+            <p>{{servicio.descripcion}}</p>
+        </div>
+        <div fxFlex="10">
+            <div [ngClass]="
+            {'circulo-verde' : servicio.system_status === 'green',
+            'circulo-ambar' : servicio.system_status === 'yellow',
+            'circulo-rojo' : servicio.system_status === 'red'}" ></div>
+        </div>
+    </div>
+    <hr size="1px" color="grey" style="width: 85%; margin-bottom: 3%;"/>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="center center">
+    <button mat-button (click)="onNoClick()">Cerrar</button>
+</div>

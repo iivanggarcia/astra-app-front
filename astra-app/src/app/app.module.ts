@@ -14,8 +14,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ServicioComponent } from './servicio/servicio.component';
-import { FirstComponent } from './first/first.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogIncidenciaComponent } from './dialog-incidencia/dialog-incidencia.component';
+import { DialogSuscritoComponent } from './dialog-suscrito/dialog-suscrito.component';
+import { HistorialIncidenciasComponent } from './historial-incidencias/historial-incidencias.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     DashboardMenuComponent,
     ServicioComponent,
-    FirstComponent
+    DialogIncidenciaComponent,
+    DialogSuscritoComponent,
+    HistorialIncidenciasComponent
   ],
   imports: [
     BrowserModule,

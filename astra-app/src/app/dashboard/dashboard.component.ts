@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriasService } from '../categorias.service';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogIncidenciaComponent } from '../dialog-incidencia/dialog-incidencia.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,29 +10,56 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
   constructor(
-    private categoriasService: CategoriasService
-  ) {}
+    private categoriasService: CategoriasService,
+    public dialog: MatDialog
+  ) { }
 
   idCategoria = 0;
   nombreCategoria = "";
-  items = [1,2,3,4,5,6]
-  panelOpenState = false;
+  descripcionCategoria = "";
 
-  servicios = [{"id_servicio": "1", "id_categoria": "1", "nombre_servicio": "Login/SOO", "descripcion": "Inicio de secion", "system_status": "green"}, {"id_servicio": "2", "id_categoria": "1", "nombre_servicio": "Uploads/Dowloads", "descripcion": "Actualizaciones y descargas de novedades", "system_status": "yellow"}];
+  servicios = [{}];
+
+  inicidenciaAmbar = true;
+  inicidenciaRoja = true;
+
+  animal: string = "";
+  name: string = "";
 
   ngOnInit(): void {
     this.categoriasService.idCategoria.subscribe((resIdCategoria: number) => {
-      console.log(resIdCategoria);
-      this.idCategoria= resIdCategoria;
+      this.idCategoria = resIdCategoria;
+      console.log("Categoría " + this.idCategoria);
+      this.servicios = this.categoriasService.obtenerServicios(this.idCategoria);
+      console.log("Servicios ", this.servicios);
     });
 
     this.categoriasService.nombreCategoria.subscribe((resNombreCategoria: string) => {
       console.log(resNombreCategoria);
-      this.nombreCategoria= resNombreCategoria;
+      this.nombreCategoria = resNombreCategoria;
     });
+
+    this.categoriasService.descripcionCategoria.subscribe((resDescripcionCategoria: string) => {
+      console.log(resDescripcionCategoria);
+      this.descripcionCategoria = resDescripcionCategoria;
+    });
+
+    if(this.categoriasService.obtenerIncidencias().length > 0){
+      this.abrirDialogoIncidencia();
+    }
   }
 
+  abrirDialogoIncidencia() {
+    const dialogRef = this.dialog.open(DialogIncidenciaComponent, {
+      maxHeight: '60%',
+      height: 'fit-content',
+      width: '45%',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

@@ -42,3 +42,10 @@ mat-toolbar{
 .sidebar .sidebar-brand .sidebar-brand-text {
   display: none;
 }
+
+.button-incidencia{
+  width: 40%; 
+  height: fit-content; 
+  border-radius: 5%;
+  margin: 2%;
+}

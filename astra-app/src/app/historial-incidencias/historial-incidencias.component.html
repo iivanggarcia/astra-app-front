@@ -1,0 +1,27 @@
+<div class="card-secundario">
+
+    <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3  style="margin-top: 2%;">Historial de incidencias</h3>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr size="2px" color="black" style="width: 70%; margin-bottom: 4%; margin-top: 2%;"/>
+          <div fxLayout="row" fxLayoutAlign="space-evenly center" style="text-align: center; font-weight: 700;">
+            <p fxFlex="20">Nombre de servicio</p>
+            <p fxFlex="50">Descripción</p>
+            <p fxFlex="15">Prioridad</p>
+            <p fxFlex="15">Fecha de Actualización</p>
+        </div>
+          <div *ngFor="let incidencia of historial" fxLayout="row" fxLayoutAlign="space-evenly center" style="text-align: center;">
+              <p fxFlex="20">{{incidencia.nombre_servicio}}</p>
+              <p fxFlex="50">{{incidencia.descripcion_incidencia}}</p>
+              <p *ngIf="incidencia.prioridad != null" fxFlex="15">{{incidencia.prioridad}}</p>
+              <p *ngIf="incidencia.prioridad == null" fxFlex="15"> Solucionado</p>
+              <p fxFlex="15">{{incidencia.fecha}}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+</div>

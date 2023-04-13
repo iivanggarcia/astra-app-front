@@ -1,0 +1,21 @@
+[debug] [2023-04-12T20:38:36.932Z] ----------------------------------------------------------------------
+[debug] [2023-04-12T20:38:36.936Z] Command:       /snap/node/7268/bin/node /usr/local/bin/firebase init
+[debug] [2023-04-12T20:38:36.937Z] CLI Version:   11.26.0
+[debug] [2023-04-12T20:38:36.937Z] Platform:      linux
+[debug] [2023-04-12T20:38:36.938Z] Node Version:  v18.15.0
+[debug] [2023-04-12T20:38:36.938Z] Time:          Wed Apr 12 2023 14:38:36 GMT-0600 (Central Standard Time)
+[debug] [2023-04-12T20:38:36.939Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-12T20:38:36.951Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-12T20:38:36.952Z] > authorizing via signed-in user (ag.diegoivan@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/diego/Documents/Repos/astra-app
+

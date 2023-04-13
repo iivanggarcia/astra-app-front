@@ -6,7 +6,7 @@
     
     <mat-toolbar >
       <div fxLayout="column" fxLayoutAlign="center center" fxFill>
-        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill (click)="redireccionaHome()">
           <img src="assets/imagen astra.png" alt="Imagen del logo de astrazeneca" width="60">
           <div class="sidebar-brand-text mx-3"> SOFTLEY </div>
         </div>
@@ -16,10 +16,13 @@
     <mat-toolbar fxLayout="row" fxLayoutAlign="center center">Categorías de servicios</mat-toolbar>
 
     <mat-nav-list >
-      <a mat-list-item href="#" *ngFor="let categoria of categorias" (click)="cambiaCategoria(categoria.id_categoria, categoria.nombre_categoria )">
+      <a mat-list-item href="#" *ngFor="let categoria of categorias" (click)="cambiaCategoria(categoria.id_categoria, categoria.nombre_categoria, categoria.descripcion)">
         <div fxLayout="row" fxLayoutAlign="space-between" class="lista-servicios">
           <p style="color: white;">{{categoria.nombre_categoria}}</p>
-          <div class="circulo-rojo"></div>
+          <div [ngClass]="
+                {'circulo-verde' : categoria.system_status === 'green',
+                'circulo-ambar' : categoria.system_status === 'yellow',
+                'circulo-rojo' : categoria.system_status === 'red'}" ></div>
       </div>
       </a>
     </mat-nav-list>

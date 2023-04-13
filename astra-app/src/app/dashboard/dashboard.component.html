@@ -1,9 +1,9 @@
 
-<mat-card>
+<mat-card class="card-principal">
     <mat-card-content *ngIf="idCategoria != 0">
         <h1 class="titulo-cat">{{nombreCategoria}}</h1>
         <hr size="2px" color="black" style="margin-top: 5%;"/>
-        <div class="descripcion-cat">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. (Descripcion de la categoria)</div>
+        <div class="descripcion-cat">{{descripcionCategoria}}</div>
         <hr size="2px" color="black" style="width: 70%; margin-bottom: 7%; margin-top: 5%;" />
         <mat-accordion >
             <app-servicio *ngFor="let servicio of servicios;" [initS]="servicio"></app-servicio>
@@ -18,9 +18,19 @@
         </div>
         <hr size="2px" color="black" style="margin-top: 5%;"/>
         <div>
-            <mat-card class="notificacion_status background_rojo" >
-                <mat-card-content><h3>Todos los servicios funcionando correctamente</h3></mat-card-content>
+            <mat-card class="notificacion_status" *ngIf="!inicidenciaAmbar && !inicidenciaRoja">
+                <mat-card-content class="background_verde"><h3>Todos los servicios funcionando correctamente</h3></mat-card-content>
+            </mat-card>
+            <mat-card class="notificacion_status" *ngIf="inicidenciaAmbar">
+                <mat-card-content class="background_ambar"><h3>Existen servicios en prioridad 2</h3></mat-card-content>
+            </mat-card>
+            <mat-card class="notificacion_status" *ngIf="inicidenciaRoja">
+                <mat-card-content class="background_rojo">
+                    <h3>Existe al menos un servicio afectado en prioridad 1</h3>
+                    <h4>Revisar</h4>
+                </mat-card-content>
             </mat-card>
         </div>
     </mat-card-content>
 </mat-card>
+<app-historial-incidencias></app-historial-incidencias>

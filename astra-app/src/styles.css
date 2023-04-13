@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
+html,
+body {
     height: 100%;
 }
 
@@ -27,17 +28,4 @@ body {
     height: 15px;
     background: #F7DC6F;
     border-radius: 100%;
-}
-
-.background_verde{
-    /*background-color: #7DCEA0;*/
-    background-color: green;
-}
-
-.background_ambar{
-    background-color: yellow;
-}
-
-.background_rojo{
-    background-color: red;
 }

@@ -1,4 +1,4 @@
-mat-card{
+.card-principal{
     margin: 5% 20% 5% 20%;
     min-height: 70%;
 }
@@ -14,8 +14,21 @@ mat-card{
 }
 
 .notificacion_status{
-    margin: 20%;
+    margin: 10% 20% 10% 20%;
     text-align: center;
     color: white;
     font-weight: 600;
+}
+
+.background_verde {
+    /*background-color: #7DCEA0;*/
+    background-color: green;
+}
+
+.background_ambar {
+    background-color: #e0b505;
+}
+
+.background_rojo {
+    background-color: red;
 }

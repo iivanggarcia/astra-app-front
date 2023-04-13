@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDividerModule,
     MatCardModule,
     FlexLayoutModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -35,7 +37,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDividerModule,
     MatCardModule,
     FlexLayoutModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
