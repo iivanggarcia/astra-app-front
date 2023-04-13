@@ -15,7 +15,9 @@ $user_correct = false;
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   // Obtenemos los parámetros de la petición
   $parametro_user = $_GET['num_telefono'];
-  //$parametro_password = $_GET['password'];
+  $parametro_password = $_GET['password'];
+
+  $pass_encriptada = hash('sha256', $parametro_password);
 
   // Se instancia el objeto dbmanager
   $ob = new dbmanager();
@@ -23,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   // Consulta a la base de datos
   $query = "SELECT * 
             FROM usuarios 
-            WHERE num_telefono = '$parametro_user'";
+            WHERE num_telefono = '$parametro_user'
+            AND pass = '$pass_encriptada'";
   $resultado = mysqli_query($ob->con, $query);
   
   // Obtener el número de filas del resultado

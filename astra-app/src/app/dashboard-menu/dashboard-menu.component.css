@@ -8,6 +8,14 @@
   color: white;
 }
 
+@media (max-width: 600px) {
+  .sidenav {
+    width: 90%;
+    background-color: #666f88;
+    color: white;
+  } 
+}
+
 mat-toolbar{
   background-color: #e0e4f0;
   color: white;

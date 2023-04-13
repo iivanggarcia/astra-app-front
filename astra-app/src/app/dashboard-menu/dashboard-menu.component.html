@@ -17,12 +17,14 @@
 
     <mat-nav-list >
       <a mat-list-item href="#" *ngFor="let categoria of categorias" (click)="cambiaCategoria(categoria.id_categoria, categoria.nombre_categoria, categoria.descripcion)">
-        <div fxLayout="row" fxLayoutAlign="space-between" class="lista-servicios">
-          <p style="color: white;">{{categoria.nombre_categoria}}</p>
-          <div [ngClass]="
+        <div fxLayout="row" fxLayoutAlign="space-between" class="lista-servicios" style="height: fit-content; white-space: nowrap; overflow: hidden;">
+          <p style="color: white; white-space: nowrap; overflow: hidden;" fxFlex="90" >{{categoria.nombre_categoria}}</p>
+          <div fxFlex="10">
+            <div [ngClass]="
                 {'circulo-verde' : categoria.system_status === 'green',
                 'circulo-ambar' : categoria.system_status === 'yellow',
                 'circulo-rojo' : categoria.system_status === 'red'}" ></div>
+          </div>
       </div>
       </a>
     </mat-nav-list>

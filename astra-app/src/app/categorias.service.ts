@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,11 @@ export class CategoriasService {
   }
 
   obtenerCategorias() {
-    return this.httpClient.get('https://softley.gosoftware.com.mx/carpJson/var_Categoria.php');
+    return this.httpClient.get('https://softley.gosoftware.com.mx/json/var_Categoria.php').pipe(
+      map((val) => {
+        console.log("resultado categorías",val);
+      })
+    )
   }
 
   servicios1 = [{ "id_servicio": "1", "id_categoria": "1", "nombre_servicio": "Login/SOO", "descripcion": "Inicio de sesión", "system_status": "green" }, { "id_servicio": "2", "id_categoria": "1", "nombre_servicio": "Uploads/Dowloads", "descripcion": "Actualizaciones y descargas de novedades", "system_status": "green" }];
